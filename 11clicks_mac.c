@@ -6,6 +6,7 @@ Max/Msp external to simulate mouse input
 #include "ext.h"		// standard Max include, always required
 #include "ext_obex.h"	// required for new style Max object
 
+#import <Carbon/Carbon.h>
 
 ////////////////////////// object struct
 typedef struct _clicky 
@@ -79,6 +80,8 @@ int C74_EXPORT main(void)
     //CGEventSourceSetPixelsPerLine(sourceRef, 1.);
     common_symbols_init();
     
+	object_post(NULL, "11clicks 2022/01/17 11OLSEN.DE");
+	
 	return 0;
 }
 
@@ -392,8 +395,6 @@ void *clicky_new(t_symbol *s, long argc, t_atom *argv)
     
 	if ((x = (t_clicky *)object_alloc(clicky_class))) 
 	{
-        object_post((t_object *)x, "11OLSEN.DE 2020/08/22 ");
-        
 		object_obex_lookup(x, _sym_pound_P, &x->w_patcher);   // assign w_patcher
 		
         defer_low(x, (method)clicky_init, NULL, 0, NULL);

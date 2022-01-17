@@ -1,4 +1,0 @@
-LIBRARY nocturn.mxe
-
-EXPORTS
-	main
