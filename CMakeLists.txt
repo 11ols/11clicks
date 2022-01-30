@@ -11,14 +11,8 @@ include_directories(
 )
 
 file(GLOB PROJECT_SRC
-	 "11clicks_mac.c"
-)
-
-IF(WIN32)
-	file(GLOB PROJECT_SRC
 	 "11clicks.c"
 )
-ENDIF(WIN32)
 
 add_library( 
 	${PROJECT_NAME} 
